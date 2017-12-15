@@ -4,15 +4,14 @@
 ## Yahtzee Group:
 Will G. and Sebastian
 
-#### D = Dice():   S.C.
-Dice class that holds all five dice as values, essentially the current state of all dice.
+#### D = Dice():   W.G.
+Dice class that holds its value.
 
-##### d.value:
-Returns the values of the di as a tuple: (Dice A, Dice B, Dice C...)
+##### d.roll():
+Rolls dice by generating "randint(1, 6)". 
 
-##### d.roll(rollnum):
-Rolls dice by generating "randint(1, 6)". This is based on a list "rollnum", that designates which dice are to be rolled (ex. for a list (a, b, d), Dice A, B, and D will be rolled.)
-
+#### returnState():
+Iterates through all 5 dice and returns their values as a list
 
 #### B = Board():  S.C.
 Class that holds current scoreboard values, essentially the current state of the game.
