@@ -19,7 +19,7 @@ Class that holds current scoreboard values, essentially the current state of the
 ##### B.check(dicestate):
 Checks the current dice in list "dicestate" to see if it satisfies a specified combo. (ex. Does (5, 5, 5, 2, 3) satisfy "Three of a Kind"?)
 
-#####B.stats():
+##### B.stats():
 Displays the stats of the board and calculates the current score by adding all the attributes together.
 
 
