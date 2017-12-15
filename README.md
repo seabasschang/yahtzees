@@ -1,7 +1,7 @@
 # Yahtzee
 
 
-##Yahtzee Group:
+## Yahtzee Group:
 Will G. and Sebastian
 
 #### D = Dice():   S.C.
