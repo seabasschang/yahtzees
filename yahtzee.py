@@ -43,12 +43,13 @@ class Board:
 		self.lgstraight = 0
 		self.yahtzee = 0
 
-	def check(self, dicestate):
+	def check(self, dicestate, choice):
 		#dicestate will be the list of dice values.
+		#choice will be the combo to check for.
 		#Checks if the current list of dice values satisfies a special combination.
+
 		choice_is_valid = False
 		while not choice_is_valid:
-			choice = input('Input Combo: ')
 			choice_is_valid = True
 			if choice.lower() == str('three of a kind') or choice.lower() == str('3 of a kind'):
 				valid = False
@@ -72,8 +73,8 @@ class Board:
 							break
 			elif choice.lower() == str('small straight'):
 				sequence = sorted(dicestate)
-				if [1, 2, 3, 4] in sequence or [2, 3, 4, 5] in sequence or [3, 4, 5, 6] in sequence
-					
+				if [1, 2, 3, 4] in sequence or [2, 3, 4, 5] in sequence or [3, 4, 5, 6] in sequence:
+					valid = True
 			elif choice.lower() == str('large straight'):
 			elif choice.lower() == str('chance'):
 			else:
@@ -110,6 +111,3 @@ class Board:
 
 
 input('Roll which dice?: ')
-
-
-print('A:'+a+'')
