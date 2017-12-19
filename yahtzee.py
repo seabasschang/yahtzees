@@ -17,8 +17,8 @@ class Board:
 
 	def check(self, dicestate, choice):
 		#dicestate will be the list of dice values.
-		#choice will be the combo to check for, (ie. "Small Straight').
-		#Will check if the current list of dice values satisfies a special combination.
+		#choice will be the combo to check for.
+		#Checks if the current list of dice values satisfies a special combination.
 		choice_is_valid = False
 		while not choice_is_valid:
 			choice_is_valid = True
@@ -69,13 +69,13 @@ class Board:
 								value = 25
 								break
 			elif choice.lower() == str('small straight') and self.smstraight == 0:
-				sequence = sorted(dicestate)
-				if [1, 2, 3, 4] in sequence or [2, 3, 4, 5] in sequence or [3, 4, 5, 6] in sequence:
+				sequence = ''.join(sorted(dicestate))
+				if '1234' in sequence or '2345' in sequence or '3456' in sequence:
 					valid = True
 					value = 30
 			elif choice.lower() == str('large straight') and self.lgstraight == 0:
 				sequence = sorted(dicestate)
-				if [1, 2, 3, 4, 5] in sequence or [2, 3, 4, 5, 6] in sequence:
+				if '12345' in sequence or '23456' in sequence:
 					valid = True
 					value = 40
 			elif choice.lower() == str('yahtzee') and self.yahtzee == 0:
@@ -93,8 +93,7 @@ class Board:
 				os.system('clear')
 
 		return (valid, value)
-		#Determines whether the inputted combo itself exists.
-		#Returns whether the dice is valid as a combo, and the produced value.
+		#Returns whether the combo itself is valid, whether the dice is valid as a combo, and the produced value.
 
 	def stats(self):
 		self.score = self.aces + self.twos + self.threes + self.fours + self.fives + self.sixes + self.threekind 
