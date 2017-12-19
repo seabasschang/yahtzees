@@ -26,39 +26,47 @@ class Board:
 			value = None
 			if choice.lower() == 'aces' and self.aces == 0:
 				if dicestate.count(1) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(1)
+					self.aces = value
 			elif choice.lower() == 'twos' and self.twos == 0:
 				if dicestate.count(2) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(2)*2
-			elif choice.lower() == 'threes' and self.twos == 0:
+					self.twos = value
+			elif choice.lower() == 'threes' and self.threes == 0:
 				if dicestate.count(3) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(3)*3
-			elif choice.lower() == 'fours' and self.twos == 0:
+					self.threes = value
+			elif choice.lower() == 'fours' and self.fours == 0:
 				if dicestate.count(4) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(4)*4
-			elif choice.lower() == 'fives' and self.twos == 0:
+					self.fours = value
+			elif choice.lower() == 'fives' and self.fives == 0:
 				if dicestate.count(5) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(5)*5
-			elif choice.lower() == 'sixes' and self.twos == 0:
+					self.fives = value
+			elif choice.lower() == 'sixes' and self.sixes == 0:
 				if dicestate.count(6) >= 1:
-					valid = False
-					value = dicestate.count(6)*6							
+					valid = True
+					value = dicestate.count(6)*6	
+					self.sixes = value						
 			elif choice.lower() == str('three of a kind') or choice.lower() == str('3 of a kind') and self.threekind == 0:
 				for n in range(1,7):
 					if dicestate.count(n) >= 3:
 						valid = True
 						value = sum(dicestate)
+						self.threekind = value
 						break
 			elif choice.lower() == str('four of a kind') or choice.lower() == str('4 of a kind') and self.fourkind == 0:
 				for n in range(1,7):
 					if dicestate.count(n) >= 4:
 						valid = True
 						value = sum(dicestate)
+						self.fourkind = value
 						break
 			elif choice.lower() == str('full house') and self.fullhouse == 0:
 				for n in range(1,7):
@@ -67,30 +75,43 @@ class Board:
 							if dicestate.count(d) == 2:						
 								valid = True
 								value = 25
+								self.fullhouse = value
 								break
 			elif choice.lower() == str('small straight') and self.smstraight == 0:
-				sequence = ''.join(sorted(dicestate))
+				dicestate = sorted(dicestate)
+				sequence = ''
+				for i in range(len(dicestate)):
+					if str(dicestate[i]) not in sequence:
+						sequence += str(dicestate[i])
 				if '1234' in sequence or '2345' in sequence or '3456' in sequence:
 					valid = True
 					value = 30
+					self.smstraight = value
 			elif choice.lower() == str('large straight') and self.lgstraight == 0:
-				sequence = sorted(dicestate)
+				dicestate = sorted(dicestate)
+				sequence = ''
+				for i in range(len(dicestate)):
+					if str(dicestate[i]) not in sequence:
+						sequence += str(dicestate[i])
 				if '12345' in sequence or '23456' in sequence:
 					valid = True
 					value = 40
+					self.lgstraight = value
 			elif choice.lower() == str('yahtzee') and self.yahtzee == 0:
 				for n in range(1,7):
 					if dicestate.count(n) == 6:
 						valid = True
 						value = 50
+						self.yahtzee = value
 						break
 			elif choice.lower() == str('chance') and self.chance == 0:
 				valid = True
 				value = sum(dicestate)
+				self.chance = value
 			else:
-				input("\nThat's not a valid Combo! Try again... (Press Enter)")
+				choice = input("\nThat's not a valid Combo! Try again... (Press Enter)")
 				choice_is_valid = False
-				os.system('clear')
+
 
 		return (valid, value)
 		#Returns whether the combo itself is valid, whether the dice is valid as a combo, and the produced value.
