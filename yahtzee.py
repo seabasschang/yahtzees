@@ -52,8 +52,12 @@ class Board:
 			elif choice.lower() == 'sixes' and self.sixes == 0:
 				if dicestate.count(6) >= 1:
 					valid = True
+<<<<<<< HEAD
 					value = dicestate.count(6)*6	
 					self.sixes = value						
+=======
+					value = dicestate.count(6)*6							
+>>>>>>> c8bcff9b40c1267dc968442c786de3ec9c811420
 			elif choice.lower() == str('three of a kind') or choice.lower() == str('3 of a kind') and self.threekind == 0:
 				for n in range(1,7):
 					if dicestate.count(n) >= 3:
@@ -88,11 +92,15 @@ class Board:
 					value = 30
 					self.smstraight = value
 			elif choice.lower() == str('large straight') and self.lgstraight == 0:
+<<<<<<< HEAD
 				dicestate = sorted(dicestate)
 				sequence = ''
 				for i in range(len(dicestate)):
 					if str(dicestate[i]) not in sequence:
 						sequence += str(dicestate[i])
+=======
+				sequence = ''.join(sorted(dicestate))
+>>>>>>> c8bcff9b40c1267dc968442c786de3ec9c811420
 				if '12345' in sequence or '23456' in sequence:
 					valid = True
 					value = 40
