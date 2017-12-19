@@ -1,5 +1,4 @@
 
-
 import random
 import tkinter as tk
 
@@ -50,12 +49,17 @@ class reroll:
 	def __init__(self):
 		self.box = tk.Button(frame, text = 'Reroll', width = 4, command = self.active)
 		self.box.grid(row = 1, column = 6)
+		self.rolls = 2
 
 	def active(self):
-		for i in x:
-			if i.yes:
-				i.roll()
-				i.yes = False
+		if self.rolls > 0:
+			for i in x:
+				if i.yes:
+					i.roll()
+					i.yes = False
+			self.rolls -= 1
+		else:
+			print('You are out of rolls')
 
 
 class Score:
@@ -65,15 +69,21 @@ class Score:
 
 	def active(self):
 		z = input('How would you like this scored? ')
-		B.check(returnState(), z)
+		info = B.check(returnState(), z)
+		print(info)
+		if info[0]:	
+			for i in x:
+				i.roll()
+			y.rolls = 2
+		B.stats()
+
+
+
 
 x = [square(i) for i in range(5)]
 
 for i in x:
 	i.roll()
-
-for i in x:
-	print(i.dice.value)
 
 y = reroll()
 
@@ -81,10 +91,10 @@ z = Score()
 
 B = Board()
 
+B.stats()
 frame.pack()
-
-print(returnState())
 
 
 
 root.mainloop()
+
