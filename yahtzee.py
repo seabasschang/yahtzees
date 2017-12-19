@@ -26,27 +26,27 @@ class Board:
 			value = None
 			if choice.lower() == 'aces' and self.aces == 0:
 				if dicestate.count(1) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(1)
 			elif choice.lower() == 'twos' and self.twos == 0:
 				if dicestate.count(2) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(2)*2
 			elif choice.lower() == 'threes' and self.twos == 0:
 				if dicestate.count(3) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(3)*3
 			elif choice.lower() == 'fours' and self.twos == 0:
 				if dicestate.count(4) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(4)*4
 			elif choice.lower() == 'fives' and self.twos == 0:
 				if dicestate.count(5) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(5)*5
 			elif choice.lower() == 'sixes' and self.twos == 0:
 				if dicestate.count(6) >= 1:
-					valid = False
+					valid = True
 					value = dicestate.count(6)*6							
 			elif choice.lower() == str('three of a kind') or choice.lower() == str('3 of a kind') and self.threekind == 0:
 				for n in range(1,7):
@@ -88,7 +88,7 @@ class Board:
 				valid = True
 				value = sum(dicestate)
 			else:
-				input("\nThat's not a valid Combo! Try again... (Press Enter)")
+				choice = input("\nThat's not a valid Combo! Try again... (Press Enter)")
 				choice_is_valid = False
 				os.system('clear')
 
