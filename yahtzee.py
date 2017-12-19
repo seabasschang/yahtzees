@@ -1,3 +1,5 @@
+import os
+
 class Board:
 	def __init__(self,):
 		self.score = 0
@@ -109,7 +111,7 @@ class Board:
 				value = sum(dicestate)
 				self.chance = value
 			else:
-				choice = input("\nThat's not a valid Combo! Try again... (Press Enter)")
+				choice = input("\nThat's not a valid Combo! Try again: ")
 				choice_is_valid = False
 
 
@@ -117,8 +119,8 @@ class Board:
 		#Returns whether the combo itself is valid, whether the dice is valid as a combo, and the produced value.
 
 	def stats(self):
-		self.score = self.aces + self.twos + self.threes + self.fours + self.fives + self.sixes + self.threekind 
-		+ self.fourkind + self.fullhouse + self.smstraight + self.lgstraight + self.yahtzee
+		os.system('clear')
+		self.score = self.aces + self.twos + self.threes + self.fours + self.fives + self.sixes + self.threekind + self.fourkind + self.fullhouse + self.smstraight + self.lgstraight + self.yahtzee
 		print('Yahtzee The Very Good Game')
 		print('-------------------------')
 		print('Aces: '+str(self.aces))
