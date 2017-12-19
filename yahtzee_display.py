@@ -64,7 +64,8 @@ class Score:
 		self.box.grid(row = 1, column = 3)
 
 	def active(self):
-		B.check(returnState())
+		z = input('How would you like this scored? ')
+		B.check(returnState(), z)
 
 x = [square(i) for i in range(5)]
 
