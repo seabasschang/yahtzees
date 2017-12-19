@@ -74,7 +74,7 @@ class Board:
 					valid = True
 					value = 30
 			elif choice.lower() == str('large straight') and self.lgstraight == 0:
-				sequence = sorted(dicestate)
+				sequence = ''.join(sorted(dicestate))
 				if '12345' in sequence or '23456' in sequence:
 					valid = True
 					value = 40
