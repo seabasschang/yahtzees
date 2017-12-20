@@ -1,6 +1,6 @@
 import os
 
-class Board: #stores all of the scores as well as the counter.
+class Board: #Stores all of the scores as well as the counter.
 	def __init__(self,):
 		self.score = 0
 		self.aces = 0
@@ -124,7 +124,7 @@ class Board: #stores all of the scores as well as the counter.
 		return (valid, value)
 		#Returns whether the combo itself is valid, whether the dice is valid as a combo, and the produced value.
 
-	def stats(self): #prints all of the score information as well as the counter.
+	def stats(self): #Prints all of the score information as well as the counter and calculated score.
 		os.system('clear')
 		self.score = self.aces + self.twos + self.threes + self.fours + self.fives + self.sixes + self.threekind + self.fourkind + self.fullhouse + self.smstraight + self.lgstraight + self.yahtzee
 		print('Yahtzee The Very Good Game')
