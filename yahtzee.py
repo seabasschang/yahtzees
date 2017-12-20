@@ -117,7 +117,7 @@ class Board: #Stores all of the scores as well as the counter.
 				value = sum(dicestate)
 				self.chance = value
 			elif choice.lower() == str('pass'):
-				valid = False
+				valid = True
 			else:
 				choice = input("\nThat's not a valid Combo! Try again: ")
 				choice_is_valid = False
