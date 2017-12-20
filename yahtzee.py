@@ -116,6 +116,8 @@ class Board: #Stores all of the scores as well as the counter.
 				valid = True
 				value = sum(dicestate)
 				self.chance = value
+			elif choice.lower() == str('pass'):
+				valid = False
 			else:
 				choice = input("\nThat's not a valid Combo! Try again: ")
 				choice_is_valid = False
@@ -128,6 +130,8 @@ class Board: #Stores all of the scores as well as the counter.
 		os.system('clear')
 		self.score = self.aces + self.twos + self.threes + self.fours + self.fives + self.sixes + self.threekind + self.fourkind + self.fullhouse + self.smstraight + self.lgstraight + self.yahtzee
 		print('Yahtzee The Very Good Game')
+		print('-------------------------')
+		print('You can "pass" if your dice are not valid.')
 		print('-------------------------')
 		print('Aces: '+str(self.aces))
 		print('Twos: ' +str(self.twos))
