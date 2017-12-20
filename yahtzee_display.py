@@ -1,6 +1,6 @@
 
 
-import random
+import random, sys
 import tkinter as tk
 
 from Yahtzee import *
@@ -9,7 +9,7 @@ from Yahtzee import *
 root = tk.Tk()
 frame = tk.Frame(root)	
 
-
+counter = 13
 
 
 class Dice:
@@ -69,14 +69,19 @@ class Score:
 		self.box.grid(row = 1, column = 3)
 
 	def active(self):
+		global counter
 		z = input('How would you like this scored? ')
 		info = B.check(returnState(), z)
 		print(info)
 		if info[0]:	
+			counter -= 1
 			for i in x:
 				i.roll()
 			y.rolls = 2
 		B.stats()
+		if counter <= 0:
+
+			sys.exit('Thanks for playing!')
 
 
 
