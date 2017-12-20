@@ -76,6 +76,7 @@ class Score: #This class is the button which allows you to score your current di
 		print(info)
 		if info[0]:	
 			counter -= 1
+			B.counter -= 1
 			for i in x:
 				i.roll()
 			y.rolls = 2
