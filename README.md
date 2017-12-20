@@ -4,6 +4,7 @@ Will G. and Sebastian
 ## Description
 A class-oriented game inspired by Yahtzee, featuring an updating scoreboard which checks the validity and value of certain dice combinations and an interactive Tkinter dice roller. 
 
+![](http://famfonts.com/wp-content/uploads/yahtzee-wide.png)
 ## Classes
 #### D = Dice():   W.G.
 Dice class that holds its value.
