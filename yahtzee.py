@@ -2,6 +2,7 @@ import os
 
 class Board:
 	def __init__(self,):
+		#Initiates with an empty board of values.
 		self.score = 0
 		self.aces = 0
 		self.twos = 0
@@ -27,6 +28,7 @@ class Board:
 			valid = False
 			value = None
 			if choice.lower() == 'aces' and self.aces == 0:
+				#All the options from aces to sixes simply check for the occurence of the number and return the sum.
 				if dicestate.count(1) >= 1:
 					valid = True
 					value = dicestate.count(1)
@@ -57,6 +59,7 @@ class Board:
 					value = dicestate.count(6)*6	
 					self.sixes = value						
 			elif choice.lower() == str('three of a kind') or choice.lower() == str('3 of a kind') and self.threekind == 0:
+				#Iterates through all possible 
 				for n in range(1,7):
 					if dicestate.count(n) >= 3:
 						valid = True
