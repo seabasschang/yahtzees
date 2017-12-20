@@ -16,6 +16,7 @@ class Board:
 		self.lgstraight = 0
 		self.yahtzee = 0
 		self.chance = 0
+		self.counter = 13
 
 	def check(self, dicestate, choice):
 		#dicestate will be the list of dice values.
@@ -101,7 +102,7 @@ class Board:
 					self.lgstraight = value
 			elif choice.lower() == str('yahtzee'):
 				for n in range(1,7):
-					if dicestate.count(n) == 6:
+					if dicestate.count(n) == 5:
 						if self.yahtzee >= 50:
 							valid = True
 							value = 100
@@ -142,5 +143,7 @@ class Board:
 		print('YAHTZEE: ' +str(self.yahtzee))
 		print('Chance: ' +str(self.chance))
 		print('-------------------------')
+		print('Rounds left = ' + str(self.counter))
 		print('Total = '+str(self.score)+'')
 		print('-------------------------')
+
