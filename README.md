@@ -1,16 +1,15 @@
-# Yahtzee
-
-
-## Yahtzee Group:
+# Yahtzee The Very Good Game:
 Will G. and Sebastian
 
+
+# Classes
 #### D = Dice():   W.G.
 Dice class that holds its value.
 
-##### d.roll():
+- d.roll():
 Rolls dice by generating "randint(1, 6)". 
 
-#### returnState():
+- returnState():
 Iterates through all 5 dice and returns their values as a list
 
 #### B = Board():  S.C.
