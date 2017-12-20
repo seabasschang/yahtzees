@@ -99,13 +99,18 @@ class Board:
 					valid = True
 					value = 40
 					self.lgstraight = value
-			elif choice.lower() == str('yahtzee') and self.yahtzee == 0:
+			elif choice.lower() == str('yahtzee'):
 				for n in range(1,7):
 					if dicestate.count(n) == 6:
-						valid = True
-						value = 50
-						self.yahtzee = value
-						break
+						if self.yahtzee >= 50:
+							valid = True
+							value = 100
+							self.yahtzee += value
+							break
+						else:
+							valid = True
+							value = 50
+							self.yahtzee = value
 			elif choice.lower() == str('chance') and self.chance == 0:
 				valid = True
 				value = sum(dicestate)
